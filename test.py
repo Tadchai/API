@@ -58,3 +58,5 @@ class Con:
         
 data = Con.select_hardware()
 print(data)
+
+"GGGGGGG"
