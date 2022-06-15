@@ -1,7 +1,32 @@
 from fastapi import FastAPI
 import uvicorn
+from action import Action as A
 app = FastAPI()
 
+@app.get("/get_hardware")
+def get_hardware():
+    data = A.get_hardware()
+    return data
+
+@app.get("/update_hardware")
+def update_hardware(ID,status):
+    data = A.update_hardware(ID,status)
+    return data
+
+@app.get("/select_hardware")
+def select_hardware(ID):
+    data = A.select_hardware(ID)
+    return data
+
+@app.get("/insert_hardware")
+def insert_hardware(name,hw_name):
+    data = A.insert_hardware(name,hw_name)
+    return data
+
+@app.get("/delete_hardware")
+def delete_hardware():
+    data = A.delete_hardware()
+    return data
 
 @app.get("/")
 def read_root():
@@ -28,7 +53,6 @@ def input_name(name,last_name):
     data = "{} {}".format(name,last_name)
     return data
 
-
 @app.get("/V")
 def V(S,T):
     V = float(S)/float(T)
@@ -43,4 +67,4 @@ def R(R1,R2,R3):
     return data
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="172.20.10.14", port=8000)   
+    uvicorn.run(app, host="localhost", port=8000)   
