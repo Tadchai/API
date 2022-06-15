@@ -1,5 +1,4 @@
-#นายธัชชัย พิสุทธิสกุลชัย
-#นายธนพล เพชรรัตน์
+from re import A
 import mysql.connector
 
 def conDB():
